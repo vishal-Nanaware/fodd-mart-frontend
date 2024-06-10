@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+body{
+     height: fit-content;
+}
+.main {
+  background-image: url("homebackground.png");
+  background-size: 500px 500px;
+  background-repeat: repeat;
+  height: 100vh;
+  width: 100vw;
+   height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 9px 12px;
+  margin: 9px 18px;
+}
+.quote {
+  font-size: 25px;
+  padding: 9px 12px;
+  margin: 8px 26px;
+  font-family: "Goudy Bookletter 1911", serif;
+  font-family: "Pacifico", cursive;
+}
+.left {
+  background-color: rgba(180, 206, 249, 255);
+  height: 80vh;
+  width: 35vw;
+  padding: 0px 0px;
+  margin: 0px 0px;
+}
+.right {
+  background-color: whitesmoke;
+  height: 80vh;
+  width: 30vw;
+  padding: 0px 20px;
+  margin: 0px 0px;
+}
+.head {
+  display: flex;
+  padding: 9px 12px;
+  margin: 0px 18px;
+}
+.heading {
+  background-color: whitesmoke;
+  padding: 9px 0px;
+
+  font-size: 20px;
+  font-family: "Pacifico", cursive;
+}
+.text1 {
+  font-size: 25px;
+  padding: 9px 12px;
+  margin: 0px 12px;
+  font-family: "Pacifico", cursive;
+}
+.Username {
+  padding: 9px 12px;
+  margin: 0px 12px;
+  color: gray;
+}
+.intuser {
+  padding: 9px 12px;
+  margin: 0px 12px;
+  width: 80%;
+  border-radius: 10px;
+}
+.forgetbutton {
+  padding: 9px 12px;
+  margin: 0px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+button {
+  border: none;
+  color: rgb(129, 129, 241);
+}
+.signinbutton {
+  border-style: solid;
+  padding: 9px 12px;
+  margin: 0px 12px;
+  width: 75%;
+  color: white;
+  background-color: rgb(71, 71, 243);
+  border-radius: 20px;
+}
+.image {
+  display: flex;
+  padding: 0px 12px;
+  margin: 0px 18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  background-color: whitesmoke;
+  color: white;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 2em;
+}
+
+.brand a {
+  font-size: 1.5em;
+  color: rgb(16, 3, 3);
+  text-decoration: none;
+  font-family: "Goudy Bookletter 1911", serif;
+  font-family: "Pacifico", cursive;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  /* display: none; */
+}
+
+nav ul li {
+  margin: 0 1em;
+}
+
+nav ul li a {
+  color: black;
+  text-decoration: none;
+  /* font-weight: bold; */
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-content ul.socials {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5em;
+}
+
+.footer-content ul.socials li {
+  margin: 0 0.5em;
+}
+
+.footer-content ul.socials li a {
+  color: white;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 1000px) {
+  .left {
+    display: none;
+  }
+  .right {
+    width: max-content;
+    height: fit-content;
+    width: 50%;
+    padding: 10px;
+    min-width: 40vw;
+    
+  }
+}

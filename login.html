@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Mart</title>
+    <link rel="stylesheet" href="login.css" />
+    <!-- <link rel="stylesheet" href="home.css"> -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+    </style>
+    <script defer src="login.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="brand">
+          <a href="home.html">Food Mart</a>
+        </div>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html">Sign In</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="main">
+      <div class="left">
+        <img src="img/Screenshot (19).png" alt="" />
+        <p class="quote">Brand Waali Quality, Bazaar Waali Deal!</p>
+      </div>
+      <div class="right">
+        <!--<img src="Screenshot (31).png" alt="">-->
+        <div class="head">
+          
+          <p class="heading">Food Mart</p>
+        </div>
+        <p class="text1">Hello, <br />Welcome Back</p>
+        <p class="Username">Username</p>
+        <input
+          class="intuser"
+          id="username"
+          type="text"
+          placeholder="Enter Usernsme"
+        />
+        <p class="Username">Password</p>
+        <input
+          class="intuser"
+          id="password"
+          type="text"
+          placeholder="Enter Password"
+        />
+        <div class="checkbox">
+          <div class="forgetbutton">
+            <button>ForgetPassword?</button>
+            <div></div>
+          </div>
+          <button class="signinbutton" onclick="signIn()" id="signIn">
+            Sign in
+          </button>
+
+          <button class="signinbutton" onclick="registration()" id="createAcc">
+            Create Account
+          </button>
+
+          <!--<div class="image">
+                    <img  src="Screenshot (32).png" alt="" width="90px" height="90px">
+            </div>-->
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2024 Food Mart Delivery App. All rights reserved.</p>
+        <ul class="socials">
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

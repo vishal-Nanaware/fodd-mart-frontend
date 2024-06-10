@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Account</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f5;
+        background-image:url(img/Screenshot\ 2024-06-05\ 182706.png);
+        backdrop-filter: brightness(60%);
+        
+      }
+      
+      div {
+        background: rgb(226, 224, 224);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+      }
+
+      label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: inline-block;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <label for="username">Username</label>
+      <input id="username" type="text" placeholder="username" /><br />
+
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="me@example.org" /><br />
+
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="password" /><br />
+
+      <button id="createAcc">Create</button>
+    </div>
+
+    <script>
+      document
+        .getElementById("createAcc")
+        .addEventListener("click", async function create() {
+          let username, password, email;
+
+       try {
+           username = document.getElementById("username").value;
+          password = document.getElementById("password").value;
+          email = document.getElementById("email").value;
+
+          let response = await fetch("http://localhost:3000/create", {
+            method: "POST",
+            body: JSON.stringify({
+              username: username,
+              password: password,
+              email: email,
+            }),
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+          })
+          console.log(response)
+
+          if(response.status == 400){
+            alert("username already exist")
+          }
+          if(response.status == 200){
+             window.location.href = "login.html";
+          }
+       } catch (error) {
+        console.log(error);
+       }
+            // .then((response) => {
+            //   console.log(response)
+            //   if (!response.status == 200) {
+            //     alert("username already existed")
+            //   }else{
+            //      window.location.href = "login.html";
+            //      return response.json(); // parse JSON response body
+            //     }
+            // })
+
+            // .catch((error) => {
+            //   console.error("Error:", error);
+            //   // handle error, maybe notify the user of an error
+            // });
+         
+
+          // You can add your form submission logic here
+          console.log(
+            `Username: ${username}, Email: ${email}, Password: ${password}`
+          );
+          
+        });
+    </script>
+  </body>
+</html>
