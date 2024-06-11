@@ -20,12 +20,16 @@ async function signIn() {
       console.log(response)
       if ((response.status == 200)) {
         console.log(response.status);
+         let data = await response.json();
+         console.log(data.user);
+         localStorage.setItem("user", data.user);
         alert("login succesfull");
+        window.location.href = "home.html"
       }else if ((response.status == 401)) {
         alert("invalid creadential");
       }
-      let data = await response.json();
-      console.log(data);
+
+
     } catch (error) {
       console.log(error);
     }

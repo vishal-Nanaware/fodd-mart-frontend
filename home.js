@@ -1,6 +1,5 @@
-
 let items = [
-  {id: 0, name: "American",url: "url('img/american.jpg')",},
+  { id: 0, name: "American", url: "url('img/american.jpg')" },
   { id: 1, name: "Italian", url: "url(img/italian.jpg)" },
   { id: 2, name: "Japanese", url: "url(img/japanese.jpg)" },
   { id: 3, name: "Korean", url: "url(img/korean.jpg)" },
@@ -35,3 +34,25 @@ function createCard(arrOfItem) {
 }
 
 createCard(items);
+
+function usercheck() {
+  let user = localStorage.getItem("user");
+  if (!user) {
+    return false;
+  }
+  return user;
+}
+
+function userlogged() {
+  let user = usercheck();
+  if (user) {
+    let navlist = document.getElementById("loginDetail");
+    let div = user;
+    navlist.innerHTML = div;
+    navlist.style.color = "black";
+    console.log(navlist);
+    navlist.removeAttribute("href");
+    console.log(navlist.innerHTML);
+  }
+}
+userlogged();
