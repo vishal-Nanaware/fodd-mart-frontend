@@ -7,7 +7,7 @@ body{
      height: fit-content;
 }
 .main {
-  background-image: url("homebackground.png");
+  background-image: url("img/homebackground.png");
   background-size: 500px 500px;
   background-repeat: repeat;
   height: 100vh;
@@ -76,6 +76,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: rgb(129, 129, 241);
 }
 button {
   border: none;
