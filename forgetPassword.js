@@ -22,7 +22,7 @@ async function submit() {
     let data = await response.json()
     console.log(data)
     if(response.status == 200){
-        localStorage.setItem("forgetpasswordUser", data.temporaryUser);
+        localStorage.setItem("temporaryUserToken", data.temporaryUserToken);
         alert("request proceed")
         window.location.href = "verifyotp.html"
     }

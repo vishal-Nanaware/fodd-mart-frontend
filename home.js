@@ -21,18 +21,25 @@ function createCard(arrOfItem) {
     card.style.display = "flex";
     card.style.alignItems = "flex-end";
 
-    card.addEventListener("click", (e) => {
-      let div = e.target;
-      console.log(div.id);
-      console.log(div.innerText);
-    });
+    card.addEventListener("click", getProduct);
     itemName.innerText = arrOfItem[i].name;
     parent.appendChild(card);
     card.appendChild(itemName);
     // console.log(parent);
   }
 }
+async function getProduct(e) {
+  let div = e.target;
+  console.log(div.id);
 
+ let responce = await fetch(`http://localhost:3000/products?id=${div.id}`, {
+    method: "GET",
+  });
+console.log(responce.url)
+let data = await responce.json()
+console.log(data);
+window.location.href = responce.url
+}
 createCard(items);
 
 function usercheck() {
@@ -50,6 +57,7 @@ function userlogged() {
     let div = user;
     navlist.innerHTML = div;
     navlist.style.color = "black";
+    navlist.style.textTransform = "capitalize";
     console.log(navlist);
     navlist.removeAttribute("href");
     console.log(navlist.innerHTML);
