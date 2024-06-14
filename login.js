@@ -21,8 +21,9 @@ async function signIn() {
       if ((response.status == 200)) {
         console.log(response.status);
          let data = await response.json();
-         console.log(data.user);
-         localStorage.setItem("user", data.user);
+         console.log(data.token);
+         localStorage.setItem("token", data.token);
+         localStorage.setItem("user", data.user)
         alert("login succesfull");
         window.location.href = "home.html"
       }else if ((response.status == 401)) {
