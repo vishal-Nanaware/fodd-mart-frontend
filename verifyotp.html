@@ -64,19 +64,32 @@
             const otp = document.getElementById('otp').value;
             // Add your form submission logic here, e.g., an AJAX request to verify the OTP
             console.log('OTP submitted:', otp);
-             let forgetpasswordUser = localStorage.getItem("forgetpasswordUser");
+             
+             let temporaryUserToken = localStorage.getItem("temporaryUserToken")
             
             fetch('http://localhost:3000/verify-otp', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ otp: otp,forgetpasswordUser:forgetpasswordUser }),
+                body: JSON.stringify({
+                     otp: otp,
+                    temporaryUserToken:temporaryUserToken 
+                }),
             })
-            .then(response => response.json())
+            .then(response => {
+                if(response.status == 200){
+                   return response.json()
+                   
+                }
+                    
+            })
             .then(data => {
                 console.log('Success:', data);
-                // Handle success (e.g., redirect to another page)
+                localStorage.removeItem("temporaryUserToken");
+                localStorage.setItem("verifyUserToken", data.verifyUserToken)
+                alert("redirecting to chnage password page")
+                window.location.href = "changePassword.html"
             })
             .catch((error) => {
                 console.error('Error:', error);
