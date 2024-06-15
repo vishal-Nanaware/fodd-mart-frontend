@@ -2,14 +2,18 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url("img/homebackground.png");
+  /* background-image: url("img/homebackground.png"); */
+  
   background-size: 500px 500px;
   background-repeat: repeat;
 }
 
 header {
-  background-color: whitesmoke;
+  
   color: white;
+  /* background-color: rgb(200,217,237); */
+   background-color: rgb(193,216,240);
+   /* box-shadow: inset -3px -5px 20px 0px rgba(15, 14, 14, 0.153) */
 }
 
 nav {
@@ -17,6 +21,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 1em 2em;
+   
 }
 
 .brand a {
@@ -29,9 +34,10 @@ nav {
 
 nav ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  margin: 10px;
+  padding: 10px;
   display: flex;
+  
   /* display: none; */
 }
 
@@ -50,7 +56,8 @@ nav ul li a:hover {
 }
 
 footer {
-  background-color: whitesmoke;
+  background-color: rgb(193,216,240);
+  /* background-color: whitesmoke; */
   color: black;
   text-align: center;
   padding: 1em 0;
@@ -84,16 +91,19 @@ footer {
 .container {
   min-height: 100vh;
   padding-bottom: 50px; /* Space for the fixed footer */
+  /* background: linear-gradient( rgb(210,222,235),rgb(200,217,237),rgb(193,216,240)); */
+  background-color: whitesmoke;
 }
 
 .top {
   height: 15em;
-  background-color: whitesmoke;
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   /* box-shadow: 2px 20px 2px 1px rgba(0, 0, 0, 0.37); */
-  /* border-radius: 15px 50px 300px 10px; */
+  border-radius: 0px 0px 100px 100px; 
+  background-color: rgb(193,216,240)
 }
 .topLeft {
   height: 100%;
@@ -101,6 +111,8 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+
+
 }
 
 .tagLine {
