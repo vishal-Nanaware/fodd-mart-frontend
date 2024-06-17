@@ -7,7 +7,7 @@ body{
      height: fit-content;
 }
 .main {
-  background-image: url("img/homebackground.png");
+  /* background-image: url("img/homebackground.png"); */
   background-size: 500px 500px;
   background-repeat: repeat;
   height: 100vh;
@@ -142,12 +142,13 @@ nav ul li a {
 nav ul li a:hover {
   text-decoration: underline;
 }
-
 footer {
-  background-color: #333;
-  color: white;
+   background-color: rgba(180, 180, 180, 0.274);
+  /* background-color: whitesmoke; */
+  color: black;
   text-align: center;
   padding: 1em 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .footer-content {
@@ -171,8 +172,23 @@ footer {
 }
 
 .footer-content ul.socials li a {
-  color: white;
+  color: black;
   text-decoration: none;
+}
+.policy ul {
+  list-style-type: none;
+}
+.policy ul li {
+  margin: 4px 10px;
+  float: left;
+}
+.policy ul li a {
+  text-decoration: none;
+  color: black;
+}
+.policy ul li a:hover {
+  text-decoration: underline;
+  color: black;
 }
 
 @media only screen and (max-width: 1000px) {

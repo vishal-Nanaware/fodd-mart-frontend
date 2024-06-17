@@ -28,18 +28,17 @@ function createCard(arrOfItem) {
     // console.log(parent);
   }
 }
+
 async function getProduct(e) {
   let div = e.target;
   console.log(div.id);
-
- let responce = await fetch(`http://localhost:3000/products?id=${div.id}`, {
-    method: "GET",
-  });
-console.log(responce.url)
-let data = await responce.json()
-console.log(data);
-window.location.href = responce.url
+  if(div.id == ""){
+    return false
+  }
+ localStorage.setItem("quary",div.id)
+  window.location.href = "products.html";
 }
+
 createCard(items);
 
 function usercheck() {
@@ -55,7 +54,7 @@ function userlogged() {
   if (user) {
     let navlist = document.getElementById("loginDetail");
     let div = user;
-    navlist.innerHTML = div;
+    navlist.innerText = div;
     navlist.style.color = "black";
     navlist.style.textTransform = "capitalize";
     console.log(navlist);
