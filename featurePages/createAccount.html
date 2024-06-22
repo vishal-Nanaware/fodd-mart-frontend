@@ -83,7 +83,7 @@
           password = document.getElementById("password").value;
           email = document.getElementById("email").value;
 
-          let response = await fetch("http://localhost:3000/create", {
+          let response = await fetch("http://localhost:3000/user/create", {
             method: "POST",
             body: JSON.stringify({
               username: username,

@@ -7,7 +7,7 @@ async function signIn() {
   } else {
     console.log("usernamme : " + username + "    password = " + password);
     try {
-      let response = await fetch("http://localhost:3000/signIn", {
+      let response = await fetch("http://localhost:3000/user/signIn", {
         method: "POST",
         body: JSON.stringify({
           username: username,
@@ -22,10 +22,11 @@ async function signIn() {
         console.log(response.status);
          let data = await response.json();
          console.log(data.token);
+         localStorage.clear();
          localStorage.setItem("token", data.token);
          localStorage.setItem("user", data.user)
         alert("login succesfull");
-        window.location.href = "home.html"
+        window.location.href = "../home.html"
       }else if ((response.status == 401)) {
         alert("invalid creadential");
       }
@@ -57,7 +58,7 @@ async function registration() {
   if (!responce.url) {
     console.log("somethings wrong");
   } else {
-    window.location.href = "createAccount.html";
+    window.location.href = "../featurePages/createAccount.html";
     console.log(responce);
   }
   console.log(responce.url);

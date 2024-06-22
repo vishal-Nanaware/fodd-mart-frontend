@@ -8,7 +8,7 @@ async function submit() {
   console.log(`email:${email} phone:${phone}`);
 
   try {
-    let response = await fetch("http://localhost:3000/forgetPassword", {
+    let response = await fetch("http://localhost:3000/user/forgetPassword", {
       method: "POST",
       body: JSON.stringify({
         email: email,

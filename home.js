@@ -36,7 +36,7 @@ async function getProduct(e) {
     return false
   }
  localStorage.setItem("quary",div.id)
-  window.location.href = "products.html";
+  window.location.href = "../product/products.html";
 }
 
 createCard(items);
@@ -63,3 +63,7 @@ function userlogged() {
   }
 }
 userlogged();
+
+function Test(){
+  window.location.href = "../product/products.html"
+}

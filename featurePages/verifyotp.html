@@ -67,7 +67,7 @@
              
              let temporaryUserToken = localStorage.getItem("temporaryUserToken")
             
-            fetch('http://localhost:3000/verify-otp', {
+            fetch('http://localhost:3000/user/verify-otp', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
