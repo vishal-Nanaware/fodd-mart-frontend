@@ -1,0 +1,106 @@
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main {
+  margin: 0.1rem;
+  /* background-color: rgb(214, 214, 214); */
+  width: 70vw;
+}
+.title-div {
+  margin: 1rem;
+}
+.navigation-div {
+  /* background-color: grey; */
+  width: 100%;
+}
+nav {
+  margin: 1rem;
+  padding: 0%;
+  /* margin: 0%; */
+  /* border: 2px solid rgb(20, 3, 3); */
+}
+nav ul {
+  display: flex;
+  flex-direction: row;
+
+  margin: 0rem;
+  padding: 0rem;
+}
+nav ul li {
+  list-style: none;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  color: rgb(121, 118, 118);
+}
+nav ul li:hover {
+  cursor: pointer;
+  background-color: rgb(203, 203, 203);
+  color: black;
+}
+nav ul li:active{
+  background-color: rgb(2, 2, 2);
+}
+
+.divSection {
+  margin: 1.2rem;
+}
+.offers-div {
+  display: block;
+}
+.users-div {
+  display: none;
+}
+.product-div {
+  display: none;
+  
+}
+.cardDiv {
+  /* margin: 2em; */
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto auto auto auto;
+ 
+  /* border: 1px solid black; */
+}
+.card {
+  width: 200px;
+  /* border: 1px solid black; */
+  padding: 0.5rem;
+}
+.itemName{
+  margin: 0.5rem;
+  margin-left: auto;
+}
+.itemPrice{
+  margin: 0.5rem;
+  font-size: medium;
+  margin-left: auto;
+}
+.itemDescription {
+  font-size: small;
+}
+.imgDiv {
+  width: fit-content;
+  border-radius: 10px;
+  /* border: 2px solid red; */
+  overflow: hidden; /* Hide any overflow content */
+  position: relative;
+}
+details{
+  font-size: smaller;
+}
+@media only screen and (max-width: 1200px) {
+  .cardDiv {
+    /* margin: 2em; */
+
+    grid-template-columns: auto auto auto;
+  }
+}
