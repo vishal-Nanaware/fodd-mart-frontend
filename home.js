@@ -35,8 +35,9 @@ async function getProduct(e) {
   if(div.id == ""){
     return false
   }
+ localStorage.setItem("itemName",div.innerText)
  localStorage.setItem("quary",div.id)
-  window.location.href = "../product/products.html";
+  window.location.href = "./product/products.html";
 }
 
 createCard(items);
