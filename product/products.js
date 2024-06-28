@@ -107,7 +107,7 @@ function view(e) {
   }
   sessionStorage.setItem("ProductId", e.target.id)
   
-  window.location.href = "./item/item.html";
+  window.location.href = "../item/item.html";
   // fetch(`http://localhost:3000/product/id?id=${e.target.id}`, {
   //   method: "POST",
   //   headers: {

@@ -26,6 +26,12 @@ function getProductid() {
 getProductid();
 
 function render(data){
-    document.querySelector('div').innerHTML = data.name
+    
+   document.getElementById('itemName').innerText = data.name
+   document.getElementById("itemDes").innerText = data.description;
+   document.getElementById("price").innerText = `$ ${data.price}`;
+   document.getElementById("cal").innerText = `${data.calories} Cal`;
+   document.getElementById('orderBtn').setAttribute('id', data.id) 
+
     
 }
