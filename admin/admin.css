@@ -45,7 +45,7 @@ nav ul li:hover {
   background-color: rgb(203, 203, 203);
   color: black;
 }
-nav ul li:active{
+nav ul li:active {
   background-color: rgb(2, 2, 2);
 }
 
@@ -60,26 +60,48 @@ nav ul li:active{
 }
 .product-div {
   display: none;
-  
 }
 .cardDiv {
   /* margin: 2em; */
-  display: grid;
-  width: 100%;
-  grid-template-columns: auto auto auto auto;
- 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
   /* border: 1px solid black; */
 }
+.btnDiv {
+  width: 100%;
+  /* border: 2px solid black; */
+  margin-bottom: 1rem;
+}
+.table {
+  width: 100%;
+}
+table {
+  width: 100%;
+  overflow-x: auto;
+}
+th,
+td {
+  
+  border: 1px solid rgb(211, 211, 211);
+  border-bottom-color:rgb(196, 196, 196) ;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  padding: 0.5rem;
+}
+
 .card {
   width: 200px;
   /* border: 1px solid black; */
   padding: 0.5rem;
 }
-.itemName{
+.itemName {
   margin: 0.5rem;
   margin-left: auto;
 }
-.itemPrice{
+.itemPrice {
   margin: 0.5rem;
   font-size: medium;
   margin-left: auto;
@@ -94,7 +116,7 @@ nav ul li:active{
   overflow: hidden; /* Hide any overflow content */
   position: relative;
 }
-details{
+details {
   font-size: smaller;
 }
 @media only screen and (max-width: 1200px) {
