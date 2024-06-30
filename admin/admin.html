@@ -34,6 +34,7 @@
           <div id="cardDiv" class="cardDiv">
             <div class="btnDiv">
               <button onclick="getProducts()">Get Products</button>
+              <button onclick="addProduct()">Add Product</button>
             </div>
             <!-- <div class="card">
               <h3 class="itemName">Hamburger</h3>
@@ -59,15 +60,45 @@
                   <th>calories</th>
                   <th class="des">Description</th>
                 </tr>
-                <tr>
-                  <td>01</td>
-                  <td>American</td>
-                  <td>Hamburger</td>
-                  <td>4.45</td>
-                  <td>550</td>
-                  <td>A sandwich consisting of one or more cooked patties of ground meat, usually beef, placed inside a sliced bread roll or bun</td>
-                </tr>
+               
               </table>
+            </div>
+            <div>
+              <form action="" id="form" class="addProduct">
+
+              <p onclick="addProduct()">Close</p>
+                <div class="nameDiv">
+                  <p class="formitemName" for="itemName">Name </p>
+                  <input required type="text" id="name" placeholder="Product Name (e.g Buger)" />
+                </div>
+
+                <div class="categoriesDiv">
+                  <p class="formCategoriesName">Categories</p>
+                  <input required list="Categories" type="text" placeholder="Select Option" id="Category" />
+                  <datalist id="Categories">
+                    <option value="American">American</option>
+                    <option value="italian">italian</option>
+                  </datalist>
+                </div>
+                <div class="valuesDiv">
+                  <div>
+                    <p class="formPriceValue"> Price </p>
+                  <input required type="text" name="" placeholder="value in $" id="price">
+                  </div>
+                  <div>
+                    <p class="formCalValue">Calories</p>
+                    <input required type="text" name="" id="calories">
+                  </div>
+
+                </div>
+                <div class="descriptionDiv">
+                  <p class="formDestitle"> Description</p>
+                  <!-- <input type="text" id="des" rows="4" cols="50">
+                    -->
+                   <textarea required id="description" name="description" rows="4" cols="50"></textarea>
+                </div>
+                <button id="submit"> submit </button>
+              </form>
             </div>
           </div>
         </div>

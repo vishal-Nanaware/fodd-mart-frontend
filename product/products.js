@@ -79,6 +79,7 @@ function createCard(item) {
   child.append(addCartbtn);
 }
 function getProducts(data) {
+  console.log(typeof data)
   console.log(data[0]);
   for (i = 0; i < data.length; i++) {
     createCard(data[i]);
