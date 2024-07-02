@@ -1,6 +1,6 @@
 let items = [
   { id: 0, name: "American", url: "url('img/american.jpg')" },
-  { id: 1, name: "Italian", url: "url(img/italian.jpg)" },
+  { id: 1, name: "italian", url: "url(img/italian.jpg)" },
   { id: 2, name: "Japanese", url: "url(img/japanese.jpg)" },
   { id: 3, name: "Korean", url: "url(img/korean.jpg)" },
   { id: 4, name: "Sea Food", url: "url(img/sea.jpg)" },
@@ -35,8 +35,8 @@ async function getProduct(e) {
   if(div.id == ""){
     return false
   }
- localStorage.setItem("itemName",div.innerText)
- localStorage.setItem("quary",div.id)
+ localStorage.setItem("category", div.innerText);
+ 
   window.location.href = "./product/products.html";
 }
 

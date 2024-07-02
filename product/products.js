@@ -10,10 +10,12 @@ function userlogged() {
     navlist.removeAttribute("href");
     console.log(navlist.innerHTML);
   }
-
-  let quaryItemname = localStorage.getItem("itemName");
-  document.getElementById("itemName").innerText = `${quaryItemname} Food`;
+  let category = localStorage.getItem("category");
+  if (category) {
+    document.getElementById("category").innerText = `${category} Food`;
+  }
 }
+
 function usercheck() {
   let user = localStorage.getItem("user");
   if (!user) {
@@ -21,21 +23,33 @@ function usercheck() {
   }
   return user;
 }
-userlogged();
-getData();
-let arrofdata = [];
-async function getData() {
-  let quary = localStorage.getItem("quary");
 
-  if (quary) {
-    fetch("http://localhost:3000/product/", {
+userlogged();
+getData();  
+
+async function getData() {
+  let category = localStorage.getItem("category");
+
+  if (category) {
+    fetch("http://localhost:3000/product/category", {
       method: "POST",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
       body: JSON.stringify({
-        quary: quary,
+        category: category,
       }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        getProducts(data);
+      });
+  } else {
+    fetch("http://localhost:3000/product/", {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
     })
       .then((response) => response.json())
       .then((data) => {
@@ -53,38 +67,41 @@ function createCard(item) {
   let itemDescription = document.createElement("p");
   let addCartbtn = document.createElement("button");
 
-  itemName.innerText = item.name;
+  itemName.innerText = item.productName;
 
-  itemPrice.innerText = `$ ${item.price}`;
+  itemPrice.innerText = `$ ${item.productPrice}`;
   addCartbtn.innerText = "Order Now";
   // let img = document.createElement("img");
   // img.src = item.img;
   // img.height = "100";
 
-  child.classList.add("card");
-  itemName.classList.add("itemName");
   // imgDiv.classList.add("imgdiv");
   // imgDiv.appendChild(img);
-  itemDescription.innerText = item.description;
+  child.classList.add("card");
+  itemName.classList.add("itemName");
+  itemDescription.innerText = item.productDescription;
   itemDescription.classList.add("itemDescription");
   itemName.addEventListener("click", view);
-  itemName.setAttribute("id", item.id);
-  addCartbtn.addEventListener("click", order);
-  addCartbtn.setAttribute("id", item.id);
+  itemName.setAttribute("id", item._id);
+  // addCartbtn.addEventListener("click", order);
+  addCartbtn.setAttribute("id", item._id);
   card.append(child);
   child.append(itemName);
-  // child.append(imgDiv);
   child.append(itemPrice);
   child.append(itemDescription);
   child.append(addCartbtn);
+  // child.append(imgDiv);
 }
+
+
 function getProducts(data) {
-  console.log(typeof data)
-  console.log(data[0]);
+  console.log(data);
   for (i = 0; i < data.length; i++) {
     createCard(data[i]);
   }
 }
+
+
 // getProducts(data);
 
 function order(e) {
@@ -100,22 +117,10 @@ function order(e) {
 }
 
 function view(e) {
-  console.log(e.target.id)
-  
+  console.log(e.target.id);
   if (e.target.id == "") {
-    
     return;
   }
-  sessionStorage.setItem("ProductId", e.target.id)
-  
+  sessionStorage.setItem("ProductId", e.target.id);
   window.location.href = "../item/item.html";
-  // fetch(`http://localhost:3000/product/id?id=${e.target.id}`, {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-type": "application/json; charset=UTF-8",
-  //   },
-  // })
-  //   .then((response) => response.json())
-  //   .then((data) => console.log(data))
-  //   .then(window.location.href = "item.")
 }

@@ -23,8 +23,9 @@ function displayDiv(div) {
 }
 
 function createTable(item) {
-  // console.log(item);
+  console.log(item);
   let table = document.getElementsByTagName("table")[0];
+
   let tr = document.createElement("tr");
   let td_id = document.createElement("td");
   let td_category = document.createElement("td");
@@ -34,8 +35,8 @@ function createTable(item) {
   let td_description = document.createElement("td");
 
   td_Name.innerText = item.productName;
-  td_id.innerText = item.id;
-  td_description.innerText = item.description;
+  td_id.innerText = item._id;
+  td_description.innerText = item.productDescription;
   td_category.innerText = item.productCategory;
   td_Price.innerText = item.productPrice;
   td_calories.innerText = item.productCalrie;
@@ -47,27 +48,32 @@ function createTable(item) {
 //fetching data
 
 function formTable(data) {
-  // for (i = 0; i < data.length; i++) {
-    // console.log(i);
-    // console.log(data[i], " from for loop");}
-
-    createTable(data);
+  for (i = 0; i < data.length; i++) {
+    createTable(data[i]);
   }
+}
 
-
+function cleanTable(table) {
+  while (table.rows.length > 0) {
+    table.deleteRow(0);
+  }
+  console.log("table is clean", table.rows.length);
+}
 function getProducts() {
+  let table = document.getElementsByTagName("table")[0];
+
+  cleanTable(table);
   try {
     fetch("http://localhost:3000/admin")
       .then((res) => res.json())
       .then((data) => {
-        console.log( data.data.length);
+        console.log(data.data);
         formTable(data.data);
       });
   } catch (e) {
     console.log(e);
   }
 }
-
 
 document.addEventListener("DOMContentLoaded", (e) => {
   const form = document.getElementById("form");
@@ -90,7 +96,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 });
 
 function sendData(data) {
-
+  console.log(data.category);
   try {
     fetch(`${url}/addproduct`, {
       method: "POST",
@@ -99,9 +105,9 @@ function sendData(data) {
       },
       body: JSON.stringify({
         name: data.name,
-        category: data.Categories,
+        category: data.category,
         price: data.price,
-        category: data.Category,
+        calories: data.calories,
         description: data.description,
       }),
     })
