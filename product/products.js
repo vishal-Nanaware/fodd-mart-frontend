@@ -65,12 +65,12 @@ function createCard(item) {
   let imgDiv = document.createElement("div");
   let itemPrice = document.createElement("h3");
   let itemDescription = document.createElement("p");
-  let addCartbtn = document.createElement("button");
+  let orderNow = document.createElement("button");
 
   itemName.innerText = item.productName;
 
   itemPrice.innerText = `$ ${item.productPrice}`;
-  addCartbtn.innerText = "Order Now";
+  orderNow.innerText = "Order Now";
   // let img = document.createElement("img");
   // img.src = item.img;
   // img.height = "100";
@@ -84,12 +84,13 @@ function createCard(item) {
   itemName.addEventListener("click", view);
   itemName.setAttribute("id", item._id);
   // addCartbtn.addEventListener("click", order);
-  addCartbtn.setAttribute("id", item._id);
+  orderNow.setAttribute("id", item._id);
+  orderNow.addEventListener("click", order)
   card.append(child);
   child.append(itemName);
   child.append(itemPrice);
   child.append(itemDescription);
-  child.append(addCartbtn);
+  child.append(orderNow);
   // child.append(imgDiv);
 }
 
@@ -104,16 +105,33 @@ function getProducts(data) {
 
 // getProducts(data);
 
+function checkUserToken(value){
+  if(value){
+    return true
+  }
+  return false
+}
+
 function order(e) {
-  console.log(e.target.id);
-  fetch(`http://localhost:3000/product/id?id=${e.target.id}`, {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-    },
-  })
+
+  let userTokencExist = checkUserToken(localStorage.getItem("token"));
+
+  if(userTokencExist){
+
+    console.log(e.target.id);
+    fetch(`http://localhost:3000/product/id?id=${e.target.id}`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
     .then((response) => response.json())
     .then((data) => console.log(data));
+  }
+  alert("sign Up First")
+  window.location.href = "../login/login.html"
+
+
 }
 
 function view(e) {

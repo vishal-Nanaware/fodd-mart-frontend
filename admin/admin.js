@@ -54,8 +54,10 @@ function formTable(data) {
 }
 
 function cleanTable(table) {
-  while (table.rows.length > 0) {
-    table.deleteRow(0);
+  
+  while (table.rows.length > 1) {
+    
+    table.deleteRow(1);
   }
   console.log("table is clean", table.rows.length);
 }
@@ -67,7 +69,8 @@ function getProducts() {
     fetch("http://localhost:3000/admin")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data);
+        document.getElementById("count").innerText = data.data.length;
+        console.log(data.data.length);
         formTable(data.data);
       });
   } catch (e) {

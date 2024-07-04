@@ -1,43 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="item.css">
+    <link rel="stylesheet" href="item.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="main">
-        <nav>
-            <div class="brandName">Food Mart</div>
-            <ul>
-                <li><a href="../home.html">Home</a></li>
-                <li><a href="../product/products.html">Product</a></li>
-                <li><a href="../login/login.html">Sign In</a></li>
-            </ul>
-        </nav>
+      <nav>
+        <div class="brandName">Food Mart</div>
+        <ul>
+          <li><a href="../home.html">Home</a></li>
+          <li><a href="../product/products.html">Product</a></li>
+          <li><a href="../login/login.html">Sign In</a></li>
+        </ul>
+      </nav>
 
-        <div class="productDiv">
-            <div class="left">
-                <div id="imgDiv">
-                    <img id="img" src="/login-page/product/item/hamburger.jpg" width="400px">
-                </div>
-            </div>
-            <div class="right">
-                <h2 id="itemName" class="itemName">Hamburger</h2>
-                <p id="itemDes" class="itemDes">"A sandwich consisting of one or more cooked patties of ground meat, usually beef, placed inside a sliced bread roll or bun.</p>
-                <div class="itemValues">
-                    <h3 id="price">$ 4.50</h3>
-                    <p id="cal" class="cal">550 Cal </p>
-                </div>
-                <button id="orderBtn" class="orderBtn">Order Now</button>
-                <p></p>
-            </div>
+      <div class="productDiv">
+        <div class="left">
+          <div id="imgDiv">
+            <img
+              id="img"
+              src="/login-page/product/item/hamburger.jpg"
+              width="400px"
+            />
+          </div>
         </div>
+        <div class="right">
+          <h2 id="itemName" class="itemName">Hamburger</h2>
+          <p id="itemDes" class="itemDes">
+            "A sandwich consisting of one or more cooked patties of ground meat,
+            usually beef, placed inside a sliced bread roll or bun.
+          </p>
+          <div class="itemValues">
+            <h3 id="price">$ 4.50</h3>
+            <p id="cal" class="cal">550 Cal</p>
+          </div>
+          <div class="counter">
+            <button id="orderBtn" class="orderBtn">Order Now</button>
+            <div class="counterBtns">
+              <button onclick="counter('increase')">+</button>
+              <p class="counterValue" id="counterValue">0</p>
+              <button onclick="counter('decrease')">-</button>
+            </div>
+          </div>
+          <p></p>
+        </div>
+      </div>
+      <div class="orderForm">
+        <form action="" id="form" class="addProduct">
+          <p onclick="addProduct()">Cancel</p>
+          <div class="nameDiv">
+            <p class="formitemName" for="itemName">Name</p>
+            <input
+              required
+              type="text"
+              id="name"
+              placeholder="Your Name"
+            />
+          </div>
+
+          <div class="categoriesDiv">
+            <p class="formCategoriesName">Ph. No</p>
+            <input required type="text" placeholder="" id="category" />
+          </div>
+          <div class="descriptionDiv">
+            <p class="formDestitle">Address</p>
+            <!-- <input type="text" id="des" rows="4" cols="50">
+                    -->
+            <textarea
+              required
+              id="description"
+              name="description"
+              rows="4"
+              cols="50"
+            ></textarea>
+          </div>
+          <div class="valuesDiv">
+            <div>
+              <p class="formPriceValue">Price</p>
+              <p class="formPriceValue">$ 7.49</p>
+            </div>
+            <div>
+              <p class="formCalValue">Calories</p>
+              <p class="formCalValue">550</p>
+            </div>
+            <div>
+                <p class="formQuaValue">Quantity</p>
+                <p class="formQuaValue">1</p>
+            </div>
+          </div>
+
+          <button id="submit">Confirm</button>
+        </form>
+      </div>
     </div>
-</body>
-<script src="item.js"></script>
+  </body>
+  <script src="item.js"></script>
 </html>

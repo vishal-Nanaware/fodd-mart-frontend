@@ -1,12 +1,22 @@
 let items = [
-  { id: 0, name: "American", url: "url('img/american.jpg')" },
-  { id: 1, name: "italian", url: "url(img/italian.jpg)" },
-  { id: 2, name: "Japanese", url: "url(img/japanese.jpg)" },
-  { id: 3, name: "Korean", url: "url(img/korean.jpg)" },
-  { id: 4, name: "Sea Food", url: "url(img/sea.jpg)" },
-  { id: 5, name: "Indian Food", url: "url(img/indian.jpg)" },
-  { id: 6, name: "Thai Food", url: "url(img/thai.jpg)" },
-  { id: 7, name: "Mexican Spicy", url: "url(img/mexican.jpg)" },
+  {
+    id: 0,
+    name: "American",
+    url: "url('img/american.jpg')",
+    value: "American",
+  },
+  { id: 1, name: "italian", url: "url(img/italian.jpg)", value: "italian" },
+  { id: 2, name: "Japanese", url: "url(img/japanese.jpg)", value: "Japan" },
+  { id: 3, name: "Korean", url: "url(img/korean.jpg)", value: "Korea" },
+  { id: 4, name: "Sea Food", url: "url(img/sea.jpg)", value: "American" },
+  { id: 5, name: "Indian Food", url: "url(img/indian.jpg)", value: "India" },
+  { id: 6, name: "Thai Food", url: "url(img/thai.jpg)", value: "Thailand" },
+  {
+    id: 7,
+    name: "Mexican Spicy",
+    url: "url(img/mexican.jpg)",
+    value: "Mexico",
+  },
 ];
 
 function createCard(arrOfItem) {
@@ -20,7 +30,7 @@ function createCard(arrOfItem) {
     card.style.backgroundSize = "cover";
     card.style.display = "flex";
     card.style.alignItems = "flex-end";
-
+    card.setAttribute("name", arrOfItem[i].value);
     card.addEventListener("click", getProduct);
     itemName.innerText = arrOfItem[i].name;
     parent.appendChild(card);
@@ -31,11 +41,11 @@ function createCard(arrOfItem) {
 
 async function getProduct(e) {
   let div = e.target;
-  console.log(div.id);
+  console.log(div.getAttribute('name'));
   if(div.id == ""){
     return false
   }
- localStorage.setItem("category", div.innerText);
+ localStorage.setItem("category", div.getAttribute("name"));
  
   window.location.href = "./product/products.html";
 }

@@ -61,6 +61,13 @@ nav ul li:active {
 .product-div {
   display: block;
 }
+.count{ 
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid rgb(161, 161, 161);
+  border-radius: 15px;
+  color: rgb(123, 123, 123);
+}
 .cardDiv {
   /* margin: 2em; */
   display: flex;
