@@ -16,7 +16,7 @@
         <ul>
           <li><a href="../home.html">Home</a></li>
           <li><a href="../product/products.html">Product</a></li>
-          <li><a href="../login/login.html">Sign In</a></li>
+          <li id="userDetails"><a  href="../login/login.html">Sign In</a></li>
         </ul>
       </nav>
 
@@ -44,7 +44,7 @@
             <button id="orderBtn" class="orderBtn">Order Now</button>
             <div class="counterBtns">
               <button onclick="counter('increase')">+</button>
-              <p class="counterValue" id="counterValue">0</p>
+              <p class="counterValue" id="counterValue">1</p>
               <button onclick="counter('decrease')">-</button>
             </div>
           </div>
@@ -66,7 +66,7 @@
 
           <div class="categoriesDiv">
             <p class="formCategoriesName">Ph. No</p>
-            <input required type="text" placeholder="" id="category" />
+            <input required type="text" placeholder="" id="phone-number" />
           </div>
           <div class="descriptionDiv">
             <p class="formDestitle">Address</p>
@@ -80,18 +80,22 @@
               cols="50"
             ></textarea>
           </div>
+          <div class="productNameDiv">
+            <p class="ProductName">Product Name</p>
+            <h4 id="ProductNameValue" class="ProductNameValue">Udon</h4>
+          </div>
           <div class="valuesDiv">
             <div>
               <p class="formPriceValue">Price</p>
-              <p class="formPriceValue">$ 7.49</p>
+              <h4 id="formPriceValue" class="formPriceValue">$ 7.49</h4>
             </div>
             <div>
               <p class="formCalValue">Calories</p>
-              <p class="formCalValue">550</p>
+              <h4 id="formCalValue" class="formCalValue">550</h4>
             </div>
             <div>
                 <p class="formQuaValue">Quantity</p>
-                <p class="formQuaValue">1</p>
+                <h4 id="formQuaValue" class="formQuaValue"></h4>
             </div>
           </div>
 
