@@ -66,7 +66,7 @@
 
           <div class="categoriesDiv">
             <p class="formCategoriesName">Ph. No</p>
-            <input required type="text" placeholder="" id="phone-number" />
+            <input required type="text" placeholder="" id="phoneNumber" />
           </div>
           <div class="descriptionDiv">
             <p class="formDestitle">Address</p>
@@ -74,7 +74,7 @@
                     -->
             <textarea
               required
-              id="description"
+              id="address"
               name="description"
               rows="4"
               cols="50"
@@ -95,9 +95,9 @@
             </div>
             <div>
                 <p class="formQuaValue">Quantity</p>
-                <h4 id="formQuaValue" class="formQuaValue"></h4>
+                <input type="number"value="1" id="formQuaValue" min="1">
             </div>
-          </div>
+          </div>  `
 
           <button id="submit">Confirm</button>
         </form>

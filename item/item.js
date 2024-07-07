@@ -95,15 +95,19 @@ function addProduct() {
 }
 function counter(value) {
   const counter = document.getElementById("counterValue");
+  const formQuaValue = document.getElementById("formQuaValue");
   if (value == "increase") {
     let count = counter.innerText;
     count++;
     counter.innerText = count;
+    formQuaValue.value = count;
+    
   } else {
     let count = counter.innerText;
     if (count == 1) return;
     count--;
     counter.innerText = count;
+    formQuaValue.value = count;
   }
 }
 
@@ -124,7 +128,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
       console.log(element," : from form data")
       formData[element.id] = element.value;
 
-      // element.value = "";
+      element.value = "";
+       const formQuaValue = document.getElementById("formQuaValue")
+       formQuaValue.value = "1"
+
     }
 
     let id = document.getElementById("ProductNameValue").getAttribute('value');
@@ -132,25 +139,28 @@ document.addEventListener("DOMContentLoaded", (e) => {
     // let data = await getData(id);
     // console.log(data)
     formData.productId = id
-    
+    console.log(typeof formData.formQuaValue);
     console.log("Form Data:" , formData);
     console.log(localStorage.getItem('token'))
     sendOrder(formData)
+    
   });
 });
 
 function sendOrder(data){
   const token = localStorage.getItem("token");
-  fetch(`http://localhost:3000/user/order`,{ 
-        method: "POST",
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-        body:JSON.stringify({
-          token:token,
-          userOrder:data
-        })
-  }).then(res => res.json()).then(data => console.log(data));
+  fetch(`http://localhost:3000/product/order`, {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+    body: JSON.stringify({
+      token: token,
+      userOrder: data,
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => console.log(data));
 }
 
 //userCheck

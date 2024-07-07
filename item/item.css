@@ -159,6 +159,9 @@ input{
   width: 5rem;
   height: 2rem;
 }
+#formQuaValue{
+  width: 2rem;
+}
 .formQuaValue,.formitemName,.formCategoriesName,.ProductName, .formPriceValue,.ProductNameValue, .formCalValue, .formDestitle{
   width: 100%;
   text-align: left;

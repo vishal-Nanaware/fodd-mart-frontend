@@ -60,17 +60,32 @@ function usercheck() {
   return user;
 }
 
+
+function  userContol(){
+
+}
 function userlogged() {
   let user = usercheck();
   if (user) {
-    let navlist = document.getElementById("loginDetail");
-    let div = user;
-    navlist.innerText = div;
-    navlist.style.color = "black";
-    navlist.style.textTransform = "capitalize";
-    console.log(navlist);
-    navlist.removeAttribute("href");
-    console.log(navlist.innerHTML);
+    let liItem = document.getElementById("loginDetail");
+    liItem.innerHTML = ""
+    const userDiv = document.createElement('div')
+   const select = document.createElement('select')
+   const userOption = document.createElement("option");
+   const option = document.createElement('option')
+   const ancher = document.createElement('a')
+  
+    ancher.href = "/cart"
+    ancher.innerText= "cart"
+  userOption.innerText = user;
+
+    liItem.append(userDiv)
+    
+    userDiv.append(select)
+    select.appendChild(userOption);
+    select.appendChild(option)
+    option.append(ancher)
+   
   }
 }
 userlogged();
